@@ -1,3 +1,6 @@
+{% extends '../base_index.html'%}
+
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,61 +19,18 @@
             align-items: center;
             height: 100vh;
         }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-        }
-        h1 {
-            text-align: center;
-            color: #007BFF;
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        label {
-            font-weight: bold;
-            color: #555;
-        }
-        input[type="file"] {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
+    {% block content %}
     <div class="container">
-        <h1>Upload Plant Image</h1>
-        <form method="post" enctype="multipart/form-data">
+        <h1 class="h1">Upload Plant Image</h1>
+        <form class="form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Upload</button>
         </form>
     </div>
+    {% endblock %}
 </body>
 </html>
