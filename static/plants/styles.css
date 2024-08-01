@@ -223,9 +223,9 @@ section {
     flex-direction: column;
     gap: 15px;
 }
-label {
+.label {
     font-weight: bold;
-    color: #fff;
+    color: #333;
 }
 input[type="file"] {
     border: 1px solid #ddd;
