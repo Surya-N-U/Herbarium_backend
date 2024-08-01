@@ -42,30 +42,53 @@ Bryophytes are small, non-vascular plants that are found in moist environments. 
 </p>
 <div id="HEPATOPHYTA" class="species-list">
     <h3>HEPATOPHYTA</h3>
-    <ul>
-        <li>Species 1A</li>
-        <li>Species 1B</li>
-        <li>Species 1C</li>
-    </ul>
+    {% for hepa in hepa_items %}
+    <div class="card">
+        <img src="{{ hepa.image.url }}" alt="{{ hepa.name }}">
+        <div class="card-text">
+            <h3>Name: {{ hepa.name }}</h3>
+            <h3>Family: {{ hepa.family }}</h3>
+            <h4>Locality : {{ hepa.locality }}</h4>
+            <h4>Collection No. : {{ hepa.collection_number }}</h4>
+            <h4>Collected by : {{ hepa.collector }}</h4>
+            <h4>Date : {{ hepa.date }}</h4>
+        </div>
+    </div>
+{% endfor %}
 </div>
-
 <div id="ANTHOCEROPHYTA" class="species-list">
     <h3>ANTHOCEROPHYTA</h3>
-    <ul>
-        <li>Species 2A</li>
-        <li>Species 2B</li>
-        <li>Species 2C</li>
-    </ul>
+    {% for antho in antho_items %}
+    <div class="card">
+        <img src="{{ antho.image.url }}" alt="{{ antho.name }}">
+        <div class="card-text">
+            <h3>Name: {{ antho.name }}</h3>
+            <h3>Family: {{ antho.family }}</h3>
+            <h4>Locality : {{ antho.locality }}</h4>
+            <h4>Collection No. : {{ antho.collection_number }}</h4>
+            <h4>Collected by : {{ antho.collector }}</h4>
+            <h4>Date : {{ antho.date }}</h4>
+        </div>
+    </div>
+{% endfor %}
 </div>
-
 <div id="BRYOPHYTA" class="species-list">
     <h3>BRYOPHYTA</h3>
-    <ul>
-        <li>Species 3A</li>
-        <li>Species 3B</li>
-        <li>Species 3C</li>
-    </ul>
+    {% for bryo in bryo_items %}
+    <div class="card">
+        <img src="{{ bryo.image.url }}" alt="{{ bryo.name }}">
+        <div class="card-text">
+            <h3>Name: {{ bryo.name }}</h3>
+            <h3>Family: {{ bryo.family }}</h3>
+            <h4>Locality : {{ bryo.locality }}</h4>
+            <h4>Collection No. : {{ bryo.collection_number }}</h4>
+            <h4>Collected by : {{ bryo.collector }}</h4>
+            <h4>Date : {{ bryo.date }}</h4>
+        </div>
+    </div>
+{% endfor %}
 </div>
+
 <script>
     document.getElementById('bryophytes-family').addEventListener('change', function() {
             // Hide all species lists
