@@ -4,9 +4,7 @@ from .forms import PlantForm, NewPlantForm
 from django.db.models import Count
 from .forms import ImageUploadForm
 from django.contrib.auth.decorators import login_required
-# from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input, decode_predictions
-# from tensorflow.keras.preprocessing.image import load_img, img_to_array
-# import numpy as np
+
 
 def home(request):
     return render(request, 'index.html')

@@ -20,19 +20,23 @@
         .species-list.active {
             display: block;
         }
+        .algae-cover {
+            background-image: url({% static 'plants/new_images/algae_cover.webp' %});
+        }
 </style>
 
 <section>
-    <div class="sectheader">
+    
+    <div class="sectheader algae-cover">
         <h2 >Algae Section</h2>
         <div class="dropdown-container">
             <label for="algae-family">Select Algae Family:</label>
             <select id="algae-family">
                 <option value="">--Select a Family--</option>
-                <option value="family1">Chlorophyta</option>
-                <option value="family2">Rhodophyta</option>
-                <option value="family3">Ochrophyta</option>
-                <option value="family3">Charophyta</option>
+                <option value="Chlorophyta">Chlorophyta</option>
+                <option value="Rhodophyta">Rhodophyta</option>
+                <option value="Ochrophyta">Ochrophyta</option>
+                <option value="Charophyta">Charophyta</option>
             </select>
         </div>
     </div>
@@ -57,7 +61,7 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
 {% endfor %}
     </div>
     
-<div id="family1" class="species-list">
+<div id="Chlorophyta" class="species-list">
     <h3>Chlorophyta</h3>
     {% for chloro in chloro_items %}
     <div class="card">
@@ -70,7 +74,7 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
 {% endfor %}
 </div>
 
-<div id="family2" class="species-list">
+<div id="Rhodophyta" class="species-list">
     <h3>Rhodophyta</h3>
     {% for rhodo in rhodo_items %}
     <div class="card">
@@ -83,7 +87,7 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
 {% endfor %}
 </div>
 
-<div id="family3" class="species-list">
+<div id="Ochrophyta" class="species-list">
     <h3>Ochrophyta</h3>
     {% for ochro in ochro_items %}
     <div class="card">
@@ -95,7 +99,7 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
     </div>
 {% endfor %}
 </div>
-<div id="family3" class="species-list">
+<div id="Charophyta" class="species-list">
     <h3>Charophyta</h3>
     {% for charo in Charo_items %}
     <div class="card">

@@ -14,25 +14,70 @@
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
 
-        .top-header {
+        .main-header {
+            background-color: #d6d6d6;
+            padding: 10px 0;
+            border-bottom: 2px solid #7e0000;
+        }
+
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #ddd;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .logo {
+        .header-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Space between center images */
+        }
+
+        .left-item,
+        .right-item {
             flex: 1;
+            max-width: 150px; /* Ensure consistent size */
         }
 
-        .logo img {
-            max-height: 100px;
+        .header-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .header-image {
+            max-width: 100%;
+            height: auto;
+            width: 150px; /* Adjust width as needed */
+        }
+
+        .center-item {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .header-item {
+                margin-bottom: 20px;
+            }
+
+            .center-item {
+                margin-bottom: 0; /* Center item doesn't need extra bottom margin in column layout */
+            }
+        }
+
 
         .title {
             flex: 2;
@@ -68,15 +113,16 @@
         .navbar {
             display: flex;
             justify-content: flex-start;
+            font-size: smaller;
             align-items: center;
             background-color: #78100d;
-            padding: 10px 20px;
+            padding: 1px 0;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 14px 20px;
+            padding: 1px 20px;
             margin-right: 10px;
         }
 
@@ -84,33 +130,64 @@
             background-color: #ddd;
             color: black;
         }
+
+        footer {
+            background-color: #888;
+            color: #fff;
+            padding: 20px 0;
+            padding-left: 0 ;
+            margin-left: 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            width: 200px; 
+            margin-bottom: 10px;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                flex-direction: row;
+            }
+            
+            .footer-logo, .footer-content {
+                margin: 0 20px;
+            }
+        }
+
     </style>
 
 </head>
 <body>
-    <div class="top-header">
-        <div class="logo">
-            <img src="{%static 'plants/new_images/jssate.png'%}" alt="Logo">
+     <header class="main-header">
+        <div class="header-container">
+            <div class="header-item left-item">
+                <img src="{%static 'logo/maharajasir.png'%}" alt="Image 1" class="header-image">
+            </div>
+            <div class="header-center">
+                <div class="header-item">
+                    <img src="{%static 'logo/uom_logo.png'%}" alt="University of Mysore Logo" class="header-image">
+                </div>
+                <div class="header-item">
+                    <img src="{%static 'logo/amrit.png'%}" alt="University of Mysore Logo" class="header-image">
+                </div>
+            </div> 
+            <div class="header-item right-item">
+                <img src="{%static 'logo/vishweshwarayya.png'%}" alt="Image 3" class="header-image">
+            </div>
         </div>
-        <div class="title" style="color: #21329e;">
-            <h4 class="h4heading">
-                JSS Mahavidyapeetha
-            </h4>
-            <h2 style="color: #78100d;" class="h4heading">
-                JSS Academy of Technical Education, Bengaluru
-            </h2>
-            <p style="color: #21329e;font-size: smaller;">
-                Approved by All India Council for Technical Education (AICTE), New Delhi.
-                <br>
-                Six UG programs are Accredited by National Board of Accreditation (NBA), New Delhi.
-                <br>
-                Recognized under 2(f) University Grants Commission (UGC), New Delhi
-                <br>
-                Affiliated to Visvesvaraya Technological University (VTU) Belagavi, Karnataka. Recognized by Govt. of Karnataka.
-                <br>
-            </p>
-        </div>
-        
+    </header>
     </div>
 
     <div class="navbar">
@@ -119,7 +196,6 @@
         <a href="{% url 'H_backend:bryophytes' %}">Bryophytes</a>
         <a href="{% url 'H_backend:pteridophytes' %}">Pteridophytes</a>
         <a href="{% url 'H_backend:gymnosperms' %}">Gymnosperms</a>
-        <a href="{% url 'H_backend:angiosperms' %}">Angiosperms</a>
         <a href="{% url 'H_backend:monocotyledons' %}">Monocotyledons</a>
         <a href="{% url 'H_backend:dicotyledons' %}">Dicotyledons</a>
         <div class="search-bar">
@@ -133,7 +209,16 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 DIGITAL HERBARIUM. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="{%static 'plants/new_images/jssate.png'%}" alt="Herbarium Logo">
+            </div>
+            <div class="footer-content">
+                <p>In associantion with JSS Academy of Technical Education, Bengaluru.</p>
+                <p>&copy; 2024 Digital Herbarium. All rights reserved.</p>
+                <p>Developed by Surya N U and Sinchana S Arun.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

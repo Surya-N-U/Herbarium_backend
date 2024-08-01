@@ -4,9 +4,14 @@
 
 
 {%block content %}
+<style>
+    .dicot-cover {
+            background-image: url({% static 'plants/new_images/dicot_cover.jpg' %});
+        }
+</style>
 
 <section >
-    <div class="sectheader">
+    <div class="sectheader dicot-cover">
         <h2>Dicotyledons Section</h2>
         <div class="dropdown-container">
             <label for="algae-family">Select Dicotyledons Family:</label>
