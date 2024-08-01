@@ -13,6 +13,9 @@ urlpatterns = [
     path('algae/', views.algae, name='algae'),
     path('gymnosperms/', views.gymnosperms, name='gymnosperms'),
     path('angiosperms/', views.angiosperms, name='angiosperms'),
-    # path('bryophytes/', views.bryophytes, name='bryophytes'),
+    path('bryophytes/', views.bryophytes, name='bryophytes'),
     path('pteridophytes/', views.pteridophytes, name='pteridophytes'),
+    path('monocotyledons/', views.monocotyledons, name='monocotyledons'),
+    path('dicotyledons/', views.dicotyledons, name='dicotyledons'),
+      
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,21 +4,131 @@
 
 
 {%block content %}
+<head>
+    <link rel="stylesheet" href="{%static 'plants/styles.css'%}">
+</head>
+<style>
+     .dropdown-container {
+            margin-bottom: 20px;
+        }
+
+        .species-list {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .species-list.active {
+            display: block;
+        }
+</style>
+
 <section>
-    <h2>Algae Section</h2>
+    <div class="sectheader">
+        <h2 >Algae Section</h2>
+        <div class="dropdown-container">
+            <label for="algae-family">Select Algae Family:</label>
+            <select id="algae-family">
+                <option value="">--Select a Family--</option>
+                <option value="family1">Chlorophyta</option>
+                <option value="family2">Rhodophyta</option>
+                <option value="family3">Ochrophyta</option>
+                <option value="family3">Charophyta</option>
+            </select>
+        </div>
+    </div>
     <p>
         Multicellular examples of algae include the giant kelp and brown algae. Unicellular examples include diatoms, Euglenophyta and Dinoflagellates.
 
 Most algae require a moist or watery environment; hence, they are ubiquitous near or inside water bodies. Anatomically, they are similar to another major group of photosynthetic organisms – the land plants. However, that is where the differences end as algae lack many structural components typically present in plants, such as true stems, shoots, and leaves. Furthermore, they also do not have vascular tissues to circulate essential nutrients and water throughout their body.
     </p>
-    {% for algae in algae_items %}
+    <div class="card-container">
+        {% for algae in algae_items %}
     <div class="card">
         <img src="{{ algae.image.url }}" alt="{{ algae.name }}">
         <div class="card-text">
-            <h3>Name: {{ algae.name }}</h3>
-            <h3>Family: {{ algae.family }}</h3>
+            <h4>Name: {{ algae.name }}</h4>
+            <h4>Family: {{ algae.family }}</h4>
+            <h4>Locality : {{ alage.locality }}</h4>
+            <h4>Collection No. : {{ algae.collection_number }}</h4>
+            <h4>Collected by : {{ algae.collector }}</h4>
+            <h4>Date : {{ algae.date }}</h4>
         </div>
     </div>
 {% endfor %}
+    </div>
+    
+<div id="family1" class="species-list">
+    <h3>Chlorophyta</h3>
+    {% for chloro in chloro_items %}
+    <div class="card">
+        <img src="{{ chloro.image.url }}" alt="{{ chloro.name }}">
+        <div class="card-text">
+            <h3>Name: {{ chloro.name }}</h3>
+            <h3>Family: {{ chloro.family }}</h3>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<div id="family2" class="species-list">
+    <h3>Rhodophyta</h3>
+    {% for rhodo in rhodo_items %}
+    <div class="card">
+        <img src="{{ rhodo.image.url }}" alt="{{ rhodo.name }}">
+        <div class="card-text">
+            <h3>Name: {{ rhodo.name }}</h3>
+            <h3>Family: {{ rhodo.family }}</h3>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<div id="family3" class="species-list">
+    <h3>Ochrophyta</h3>
+    {% for ochro in ochro_items %}
+    <div class="card">
+        <img src="{{ ochro.image.url }}" alt="{{ ochro.name }}">
+        <div class="card-text">
+            <h3>Name: {{ ochro.name }}</h3>
+            <h3>Family: {{ ochro.family }}</h3>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div id="family3" class="species-list">
+    <h3>Charophyta</h3>
+    {% for charo in Charo_items %}
+    <div class="card">
+        <img src="{{ charo.image.url }}" alt="{{ charo.name }}">
+        <div class="card-text">
+            <h3>Name: {{ charo.name }}</h3>
+            <h3>Family: {{ charo.family }}</h3>
+        </div>
+    </div>
+{% endfor %}
+</div>
 </section>
+<script>
+    document.getElementById('algae-family').addEventListener('change', function() {
+            // Hide all species lists
+            document.querySelectorAll('.species-list').forEach(function(list) {
+                list.classList.remove('active');
+            });
+
+            // Show the selected species list, or all if none selected
+            var selectedFamily = this.value;
+            if (selectedFamily) {
+                document.getElementById(selectedFamily).classList.add('active');
+            } else {
+                document.querySelectorAll('.species-list').forEach(function(list) {
+                    list.classList.add('active');
+                });
+            }
+        });
+
+        // Display all species lists by default
+        document.querySelectorAll('.species-list').forEach(function(list) {
+            list.classList.add('active');
+        });
+</script>
 {%endblock%}

@@ -13,7 +13,11 @@ def home(request):
 
 def algae(request):
     algae_items = NewPlant.objects.filter(type='Algae')
-    return render(request, 'algae.html', {'algae_items': algae_items})
+    chloro_items = NewPlant.objects.filter(family='Chloroplast')
+    return render(request, 'algae.html', {'algae_items': algae_items, 'chloro_items' : chloro_items})
+
+def bryophytes(request):
+    return render(request, 'bryophytes.html')
 
 def gymnosperms(request):
     gymno_items = NewPlant.objects.filter(type='Gymnosperms')
@@ -26,6 +30,12 @@ def angiosperms(request):
 def pteridophytes(request):
     pteri_items = NewPlant.objects.filter(type='Pteridophytes')
     return render(request, 'pteridophytes.html', {'pteri_items': pteri_items})
+
+def monocotyledons(request):
+    return render(request, 'monocotyledons.html')
+
+def dicotyledons(request):
+    return render(request, 'dicotyledons.html')
 
 
 @login_required

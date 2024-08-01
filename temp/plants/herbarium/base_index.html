@@ -9,22 +9,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title%} Herbqriium - Algae {%endblock%}</title>
+    <title>{%block title%} Herbqriium{%endblock%}</title>
     <link rel="stylesheet" href="{%static 'plants/styles.css'%}">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            flex: 1;
+        }
+
+        .logo img {
+            max-height: 100px;
+        }
+
+        .title {
+            flex: 2;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .search-bar button:hover {
+            background-color: #4cae4c;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #78100d;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            margin-right: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+
 </head>
 <body>
-    <header>
-        <h1>DIGITAL HERBARIUM</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'H_backend:home' %}">Home</a></li>
-                <li><a href="{% url 'H_backend:algae' %}">Algae</a></li>
-                <li><a href="{% url 'H_backend:pteridophytes' %}">Pteridophytes</a></li>
-                <li><a href="{% url 'H_backend:gymnosperms' %}">Gymnosperms</a></li>
-                <li><a href="{% url 'H_backend:angiosperms' %}">Angiosperms</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="top-header">
+        <div class="logo">
+            <img src="{%static 'plants/new_images/jssate.png'%}" alt="Logo">
+        </div>
+        <div class="title" style="color: #21329e;">
+            <h4 class="h4heading">
+                JSS Mahavidyapeetha
+            </h4>
+            <h2 style="color: #78100d;" class="h4heading">
+                JSS Academy of Technical Education, Bengaluru
+            </h2>
+            <p style="color: #21329e;font-size: smaller;">
+                Approved by All India Council for Technical Education (AICTE), New Delhi.
+                <br>
+                Six UG programs are Accredited by National Board of Accreditation (NBA), New Delhi.
+                <br>
+                Recognized under 2(f) University Grants Commission (UGC), New Delhi
+                <br>
+                Affiliated to Visvesvaraya Technological University (VTU) Belagavi, Karnataka. Recognized by Govt. of Karnataka.
+                <br>
+            </p>
+        </div>
+        
+    </div>
+
+    <div class="navbar">
+        <a href="{% url 'H_backend:home' %}">Home</a>
+        <a href="{% url 'H_backend:algae' %}">Algae</a>
+        <a href="{% url 'H_backend:bryophytes' %}">Bryophytes</a>
+        <a href="{% url 'H_backend:pteridophytes' %}">Pteridophytes</a>
+        <a href="{% url 'H_backend:gymnosperms' %}">Gymnosperms</a>
+        <a href="{% url 'H_backend:angiosperms' %}">Angiosperms</a>
+        <a href="{% url 'H_backend:monocotyledons' %}">Monocotyledons</a>
+        <a href="{% url 'H_backend:dicotyledons' %}">Dicotyledons</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="button">Search</button>
+        </div>
+    </div>
     <main>
         {% block content %}
         {% endblock %}

@@ -10,7 +10,7 @@ body {
 
 header {
     background-color: #333;
-    color: #0b2905;
+    color: #fff;
     padding: 400px 0;
     background-size: cover; 
 font-size: x-large;
@@ -65,7 +65,7 @@ section {
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -189,3 +189,22 @@ section {
 .card-flip .btn:hover {
     background-color: #0056b3;
 }
+
+.h4heading {
+    margin: 0;
+}
+
+.sectheader{
+    background-color: #1f4a37;
+    color: #fff;
+    padding: 100px 0;
+    margin: 0;
+    background-size: cover; 
+    font-size: x-large;
+    background-repeat: no-repeat; 
+    text-align: center;
+    background-blend-mode: overlay; 
+}
+
+
+

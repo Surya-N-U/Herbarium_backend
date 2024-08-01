@@ -1,0 +1,54 @@
+{%extends 'base_index.html'%}
+{%block title%} Herbarium - Angiosperms {%endblock%}
+{%load static%}
+
+
+{%block content %}
+
+<section >
+    <div class="sectheader">
+        <h2>Dicotyledons Section</h2>
+        <div class="dropdown-container">
+            <label for="algae-family">Select Dicotyledons Family:</label>
+            <select id="algae-family">
+                <option value="">--Select a Family--</option>
+                <option value="family1">HEPATOPHYTA</option>
+                <option value="family2">ANTHOCEROPHYTA</option>
+                <option value="family3">BRYOPHYTA</option>
+            </select>
+        </div>
+    </div>
+<p>
+<!-- #information about dicotyledons -->
+Dicotyledons are a class of flowering plants, also known as dicots. They are characterized by having two seed leaves in the embryo. The leaves of dicots have a network of veins, and the flowers are usually in multiples of four or five. Dicots are a diverse group of plants that include trees, shrubs, herbs, and vines. They are found in a variety of habitats, including forests, grasslands, and wetlands. Dicots play an essential role in the ecosystem by providing food and shelter for a variety of animals and by helping to prevent soil erosion. They are also used in traditional medicine and as a source of food and fuel.
+
+</p>
+<div id="family1" class="species-list">
+    <h3>HEPATOPHYTA</h3>
+    <ul>
+        <li>Species 1A</li>
+        <li>Species 1B</li>
+        <li>Species 1C</li>
+    </ul>
+</div>
+
+<div id="family2" class="species-list">
+    <h3>ANTHOCEROPHYTA</h3>
+    <ul>
+        <li>Species 2A</li>
+        <li>Species 2B</li>
+        <li>Species 2C</li>
+    </ul>
+</div>
+
+<div id="family3" class="species-list">
+    <h3>BRYOPHYTA</h3>
+    <ul>
+        <li>Species 3A</li>
+        <li>Species 3B</li>
+        <li>Species 3C</li>
+    </ul>
+</div>
+
+
+{%endblock%}

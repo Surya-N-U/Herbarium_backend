@@ -1,0 +1,90 @@
+{%extends 'base_index.html'%}
+{%block title%} Herbarium - Angiosperms {%endblock%}
+{%load static%}
+
+
+{%block content %}
+<style>
+    .dropdown-container {
+           margin-bottom: 20px;
+       }
+
+       .species-list {
+           display: none;
+           margin-top: 20px;
+       }
+
+       .species-list.active {
+           display: block;
+       }
+</style>
+
+<section >
+    <div class="sectheader">
+        <h2>Bryophytes Section</h2>
+        <div class="dropdown-container">
+            <label for="bryophytes-family">Select Bryophytes Family:</label>
+            <select id="bryophytes-family">
+                <option value="">--Select a Family--</option>
+                <option value="HEPATOPHYTA">HEPATOPHYTA</option>
+                <option value="ANTHOCEROPHYTA">ANTHOCEROPHYTA</option>
+                <option value="BRYOPHYTA">BRYOPHYTA</option>
+            </select>
+        </div>
+    </div>
+<p>
+<!-- #information about bryophytes -->
+Bryophytes are small, non-vascular plants that are found in moist environments. They are the simplest of all land plants and are believed to be the first plants to have colonized the land. They are also known as the amphibians of the plant kingdom as they require water for sexual reproduction. Bryophytes are divided into three groups: mosses, liverworts, and hornworts. They are found in a variety of habitats, including moist forests, wetlands, and tundra. Bryophytes play an essential role in the ecosystem by providing food and shelter for a variety of animals and by helping to prevent soil erosion. They are also used in traditional medicine and as a source of food and fuel.
+
+</p>
+<div id="HEPATOPHYTA" class="species-list">
+    <h3>HEPATOPHYTA</h3>
+    <ul>
+        <li>Species 1A</li>
+        <li>Species 1B</li>
+        <li>Species 1C</li>
+    </ul>
+</div>
+
+<div id="ANTHOCEROPHYTA" class="species-list">
+    <h3>ANTHOCEROPHYTA</h3>
+    <ul>
+        <li>Species 2A</li>
+        <li>Species 2B</li>
+        <li>Species 2C</li>
+    </ul>
+</div>
+
+<div id="BRYOPHYTA" class="species-list">
+    <h3>BRYOPHYTA</h3>
+    <ul>
+        <li>Species 3A</li>
+        <li>Species 3B</li>
+        <li>Species 3C</li>
+    </ul>
+</div>
+<script>
+    document.getElementById('bryophytes-family').addEventListener('change', function() {
+            // Hide all species lists
+            document.querySelectorAll('.species-list').forEach(function(list) {
+                list.classList.remove('active');
+            });
+
+            // Show the selected species list, or all if none selected
+            var selectedFamily = this.value;
+            if (selectedFamily) {
+                document.getElementById(selectedFamily).classList.add('active');
+            } else {
+                document.querySelectorAll('.species-list').forEach(function(list) {
+                    list.classList.add('active');
+                });
+            }
+        });
+
+        // Display all species lists by default
+        document.querySelectorAll('.species-list').forEach(function(list) {
+            list.classList.add('active');
+        });
+</script>
+
+{%endblock%}
