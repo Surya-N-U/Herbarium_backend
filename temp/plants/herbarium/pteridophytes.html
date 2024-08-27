@@ -15,41 +15,20 @@
             </div>
             
 <p>Pteridophytes (ferns and lycophytes) are free-sporing vascular plants that have a life cycle with alternating, free-living gametophyte and sporophyte phases that are independent at maturity. The body of the sporophyte is well differentiated into roots, stem and leaves.
-    Classification of Pteridophytes
-There are four classes, namely:
-<ol>
-    <li>Psilopsida</li>
-    <li>Lycopsida</li>
-    <li>Sphenopsida</li>
-    <li>Sphenopsida</li>
-</ol>
+    
 </p>        
-                
-                <div class="card">
-                    <img src="{%static 'plants/new_images/pteridonew1.jpg'%}" alt="Algae Image 1">
-                    <div class="card-text">
-                        <h3>Pteridophytes Species 1</h3>
-                        <!-- <p>Description of algae species 1.</p> -->
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{%static 'plants/new_images/pteridonew1.jpg'%}" alt="Algae Image 2">
-                    <div class="card-text">
-                        <h3>Pteridophytes Species 2</h3>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{%static 'plants/new_images/pteridonew1.jpg'%}" alt="Algae Image 2">
-                    <div class="card-text">
-                        <h3>Pteridophytes Species 3</h3>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{%static 'plants/new_images/pteridonew1.jpg'%}" alt="Algae Image 2">
-                    <div class="card-text">
-                        <h3>Pteridophytes Species 4</h3>
-                    </div>
-                </div>
-            
-            </section>
+    <div class="card-container">
+        {% for pterido in pterido_items %}
+    <div class="card" style="text-align: left;">
+        <img src="{{ pterido.image.url }}" alt="{{ pterido.name }}">
+        <div class="card-text">
+            <h4>Name: {{ pterido.scientific_name }}</h4>
+            <h4>Family: {{ pterido.family }}</h4>
+            <h4>Locality : {{ pterido.location }}</h4>
+            <h4>Collected by : {{ pterido.collector }}</h4>
+            <h4>Date : {{ pterido.collection_date }}</h4>
+        </div>
+    </div>
+{% endfor %}
+    </div>
 {%endblock%}

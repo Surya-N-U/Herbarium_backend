@@ -122,7 +122,7 @@
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 1px 20px;
+            padding: 10px 20px;
             margin-right: 10px;
         }
 
@@ -198,10 +198,11 @@
         <a href="{% url 'H_backend:gymnosperms' %}">Gymnosperms</a>
         <a href="{% url 'H_backend:monocotyledons' %}">Monocotyledons</a>
         <a href="{% url 'H_backend:dicotyledons' %}">Dicotyledons</a>
-        <div class="search-bar">
+        <a href="{% url 'H_backend:search' %}">Search</a>
+        <!-- <div class="search-bar">
             <input type="text" placeholder="Search...">
             <button type="button">Search</button>
-        </div>
+        </div> -->
     </div>
     <main>
         {% block content %}

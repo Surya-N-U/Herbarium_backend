@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Herbarium_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'plants',
+        'NAME': 'allplants',
         'USER': 'root',
         'PASSWORD': 'surya1234',
         'HOST': 'localhost',

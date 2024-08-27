@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <p>Select an action:</p>
+    <ul>
+        <li><a href="{% url 'H_backend:upload_plant' %}">Upload New Plant</a></li>
+        <li><a href="{% url 'custom_admin_dashboard' %}#edit">Edit Existing Plant</a></li>
+        <li><a href="{% url 'custom_admin_dashboard' %}#delete">Delete Plant</a></li>
+    </ul>
+
+    <!-- Optionally, you can list out plants here for editing or deleting -->
+    <div id="edit">
+        <h2>Edit a Plant</h2>
+        <ul>
+            {% for plant in plants %}
+            <li>
+                <a href="{% url 'edit_plant' plant.id %}">{{ plant.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div id="delete">
+        <h2>Delete a Plant</h2>
+        <ul>
+            {% for plant in plants %}
+            <li>
+                <a href="{% url 'delete_plant' plant.id %}">{{ plant.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

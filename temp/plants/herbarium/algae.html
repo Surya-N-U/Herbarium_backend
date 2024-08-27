@@ -52,56 +52,57 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
         <div class="card-text">
             <h4>Name: {{ algae.name }}</h4>
             <h4>Family: {{ algae.family }}</h4>
-            <h4>Locality : {{ alage.locality }}</h4>
-            <h4>Collection No. : {{ algae.collection_number }}</h4>
+            <h4>Locality : {{ alage.location }}</h4>
             <h4>Collected by : {{ algae.collector }}</h4>
-            <h4>Date : {{ algae.date }}</h4>
+            <h4>Date : {{ algae.collection_date }}</h4>
         </div>
     </div>
 {% endfor %}
     </div>
     
-<div id="Chlorophyta" class="species-list">
+<div id="Chlorophyta" class="species-list" 
     <h3>Chlorophyta</h3>
-    {% for chloro in chloro_items %}
-    <div class="card">
-        <img src="{{ chloro.image.url }}" alt="{{ chloro.name }}">
-        <div class="card-text">
-            <h3>Name: {{ chloro.name }}</h3>
-            <h3>Family: {{ chloro.family }}</h3>
-            <h4>Locality : {{ chloro.locality }}</h4>
-            <h4>Collection No. : {{ chloro.collection_number }}</h4>
-            <h4>Collected by : {{ chloro.collector }}</h4>
-            <h4>Date : {{ chloro.date }}</h4>
+    <div class="card-container">
+        {% for chloro in chloro_items %}
+        <div class="card" style="text-align: left;">
+            <img src="{{ chloro.image.url }}" alt="{{ chloro.name }}">
+            <div class="card-text">
+                <h3>Name: {{ chloro.scientific_name }}</h3>
+                <h3>Family: {{ chloro.family }}</h3>
+                <h4>Locality : {{ chloro.location }}</h4>
+                <h4>Collected by : {{ chloro.collector }}</h4>
+                <h4>Date : {{ chloro.collection_date }}</h4>
+            </div>
         </div>
+    {% endfor %}
     </div>
-{% endfor %}
 </div>
 
 <div id="Rhodophyta" class="species-list">
     <h3>Rhodophyta</h3>
-    {% for rhodo in rhodo_items %}
-    <div class="card">
-        <img src="{{ rhodo.image.url }}" alt="{{ rhodo.name }}">
-        <div class="card-text">
-            <h3>Name: {{ rhodo.name }}</h3>
-            <h3>Family: {{ rhodo.family }}</h3>
-            <h4>Locality : {{ rhodo.locality }}</h4>
-            <h4>Collection No. : {{ rhodo.collection_number }}</h4>
-            <h4>Collected by : {{ rhodo.collector }}</h4>
-            <h4>Date : {{ rhodo.date }}</h4>
+    <div class="card-container" style="text-align: left;">
+        {% for rhodo in rhodo_items %}
+        <div class="card" style="text-align: left;">
+            <img src="{{ rhodo.image.url }}" alt="{{ rhodo.name }}">
+            <div class="card-text">
+                <h3>Name: {{ rhodo.scientific_name }}</h3>
+                <h3>Family: {{ rhodo.family }}</h3>
+                <h4>Locality : {{ rhodo.location }}</h4>
+                <h4>Collected by : {{ rhodo.collector }}</h4>
+                <h4>Date : {{ rhodo.collection_date }}</h4>
+            </div>
         </div>
+    {% endfor %}
     </div>
-{% endfor %}
 </div>
 
-<div id="Ochrophyta" class="species-list">
+<div id="Ochrophyta" class="species-list" style="text-align: left;" >
     <h3>Ochrophyta</h3>
     {% for ochro in ochro_items %}
-    <div class="card">
+    <div class="card" style="text-align: left;">
         <img src="{{ ochro.image.url }}" alt="{{ ochro.name }}">
         <div class="card-text">
-            <h3>Name: {{ ochro.name }}</h3>
+            <h3>Name: {{ ochro.scientific_name }}</h3>
             <h3>Family: {{ ochro.family }}</h3>
             <h4>Locality : {{ ochro.locality }}</h4>
             <h4>Collection No. : {{ ochro.collection_number }}</h4>
@@ -114,10 +115,10 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
 <div id="Charophyta" class="species-list">
     <h3>Charophyta</h3>
     {% for charo in Charo_items %}
-    <div class="card">
+    <div class="card" style="text-align: left;">
         <img src="{{ charo.image.url }}" alt="{{ charo.name }}">
-        <div class="card-text">
-            <h3>Name: {{ charo.name }}</h3>
+        <div class="card-text" style="text-align: left;">
+            <h3>Name: {{ charo.scientific_name }}</h3>
             <h3>Family: {{ charo.family }}</h3>
             <h4>Locality : {{ charo.locality }}</h4>
             <h4>Collection No. : {{ charo.collection_number }}</h4>

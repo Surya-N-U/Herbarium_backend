@@ -1,0 +1,49 @@
+{%extends '../base_index.html'%}
+<body>
+    {%block content%}
+    <h1>Search Plants</h1>
+
+    <form method="get">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ form.name.value }}">
+        </div>
+        <div>
+            <label for="family">Family:</label>
+            <input type="text" id="family" name="family" value="{{ form.family.value }}">
+        </div>
+        <div>
+            <label for="locality">Locality:</label>
+            <input type="text" id="locality" name="locality" value="{{ form.locality.value }}">
+        </div>
+        <div>
+            <label for="collector">Collector:</label>
+            <input type="text" id="collector" name="collector" value="{{ form.collector.value }}">
+        </div>
+        <div>
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    {% if results %}
+        <h2>Search Results</h2>
+        <div class="card-container" style="text-align: left;">
+            {% for plant in results %}
+            <div class="card" style="text-align: left;">
+                <img src="{{ plant.image.url }}" alt="{{ plant.name }}">
+                <div class="card-text">
+                    <h3>Name: {{ plant.scientific_name }}</h3>
+                    <h3>Family: {{ plant.family }}</h3>
+                    <h4>Locality : {{ plant.location }}</h4>
+                    <h4>Collected by : {{ plant.collector }}</h4>
+                    <h4>Date : {{ plant.collection_date }}</h4>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    {%endblock%}
+</body>
+</html>

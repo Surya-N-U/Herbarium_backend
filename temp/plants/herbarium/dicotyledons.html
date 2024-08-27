@@ -99,32 +99,77 @@
 Dicotyledons are a class of flowering plants, also known as dicots. They are characterized by having two seed leaves in the embryo. The leaves of dicots have a network of veins, and the flowers are usually in multiples of four or five. Dicots are a diverse group of plants that include trees, shrubs, herbs, and vines. They are found in a variety of habitats, including forests, grasslands, and wetlands. Dicots play an essential role in the ecosystem by providing food and shelter for a variety of animals and by helping to prevent soil erosion. They are also used in traditional medicine and as a source of food and fuel.
 
 </p>
-<div id="family1" class="species-list">
-    <h3>HEPATOPHYTA</h3>
-    <ul>
-        <li>Species 1A</li>
-        <li>Species 1B</li>
-        <li>Species 1C</li>
-    </ul>
+<h3>ACANTHACEAE</h3>
+<div id="ACANTHACEAE" class="card-container">
+    {% for acant in acant_items %}
+    <div class="card">
+        <img src="{{ acant.image.url }}" alt="{{ acant.name }}">
+        <div class="card-text" style="text-align: left;">
+            <h4>Name: {{ acant.scientific_name }}</h4>
+            <h4>Family: {{ acant.family }}</h4>
+            <h4>Locality : {{ acant.location }}</h4>
+            <h4>Collected by : {{ acant.collector }}</h4>
+            <h4>Date : {{ acant.collection_date }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+
+
 </div>
-
-<div id="family2" class="species-list">
-    <h3>ANTHOCEROPHYTA</h3>
-    <ul>
-        <li>Species 2A</li>
-        <li>Species 2B</li>
-        <li>Species 2C</li>
-    </ul>
+<!-- give same for Amaryllidaceae -->
+<h3>Amaryllidaceae</h3>
+<div class="card-container">
+    {% for amar in amar_items %}
+    <div class="card">
+        <img src="{{ amar.image.url }}" alt="{{ amar.name }}">
+        <div class="card-text" style="text-align: left;">
+            <h4>Name: {{ amar.scientific_name }}</h4>
+            <h4>Family: {{ amar.family }}</h4>
+            <h4>Locality : {{ amar.location }}</h4>
+            <h4>Collected by : {{ amar.collector }}</h4>
+            <h4>Date : {{ amar.collection_date }}</h4>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-
-<div id="family3" class="species-list">
-    <h3>BRYOPHYTA</h3>
-    <ul>
-        <li>Species 3A</li>
-        <li>Species 3B</li>
-        <li>Species 3C</li>
-    </ul>
+<h3>Loranthaecae</h3>
+<div class="card-container">
+    {% for lor in lor_items %}
+    <div class="card">
+        <img src="{{ lor.image.url }}" alt="{{ lor.name }}">
+        <div class="card-text" style="text-align: left;">
+            <h4>Name: {{ lor.scientific_name }}</h4>
+            <h4>Family: {{ lor.family }}</h4>
+            <h4>Locality : {{ lor.location }}</h4>
+            <h4>Collected by : {{ lor.collector }}</h4>
+            <h4>Date : {{ lor.collection_date }}</h4>
+        </div>
+    </div>
+    {% endfor %}
 </div>
+</div>
+</section>
+<script>
+document.getElementById('algae-family').addEventListener('change', function() {
+            // Hide all species lists
+            document.querySelectorAll('.species-list').forEach(function(list) {
+                list.classList.remove('active');
+            });
 
+            // Show the selected species list, or all if none selected
+            var selectedFamily = this.value;
+            if (selectedFamily) {
+                document.getElementById(selectedFamily).classList.add('active');
+            } else {
+                document.querySelectorAll('.species-list').forEach(function(list) {
+                    list.classList.add('active');
+                });
+            }
+        });
 
+        // Display all species lists by default
+        document.querySelectorAll('.species-list').forEach(function(list) {
+            list.classList.add('active');
+        });
+</script>
 {%endblock%}

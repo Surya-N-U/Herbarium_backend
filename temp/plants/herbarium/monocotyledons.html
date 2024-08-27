@@ -59,32 +59,87 @@
 Monocotyledons are a class of flowering plants, also known as monocots. They are characterized by having one seed leaf in the embryo. The leaves of monocots have parallel veins, and the flowers are usually in multiples of three. Monocots are a diverse group of plants that include grasses, lilies, orchids, and palms. They are found in a variety of habitats, including grasslands, wetlands, and forests. Monocots play an essential role in the ecosystem by providing food and shelter for a variety of animals and by helping to prevent soil erosion. They are also used in traditional medicine and as a source of food and fuel.
 
 </p>
-<div id="family1" class="species-list">
-    <h3>HEPATOPHYTA</h3>
-    <ul>
-        <li>Species 1A</li>
-        <li>Species 1B</li>
-        <li>Species 1C</li>
-    </ul>
+
+
+<div id="ARACEAE" class="species-list">
+    <h3>ARACEAE</h3>
+<div class="card-container">
+    {% for arac in arac_items %}
+    <div class="card" style="text-align: left;">
+        <img src="{{ arac.image.url }}" alt="{{ arac.name }}">
+        <div class="card-text">
+            <h4>Name: {{ arac.scientific_name }}</h4>
+            <h4>Family: {{ arac.family }}</h4>
+            <h4>Locality : {{ arac.location }}</h4>
+            <h4>Collected by : {{ arac.collector }}</h4>
+            <h4>Date : {{ arac.collection_date }}</h4>
+        </div>
+    </div>
+{% endfor %}
+
 </div>
 
-<div id="family2" class="species-list">
-    <h3>ANTHOCEROPHYTA</h3>
-    <ul>
-        <li>Species 2A</li>
-        <li>Species 2B</li>
-        <li>Species 2C</li>
-    </ul>
+<div id="POACEAE" class="species-list">
+    <h3>POACEAE</h3>
+    <div class="card-container">
+        {% for poa in poa_items %}
+        <div class="card" style="text-align: left;">
+            <img src="{{ poa.image.url }}" alt="{{ poa.name }}">
+            <div class="card-text">
+                <h4>Name: {{ poa.scientific_name }}</h4>
+                <h4>Family: {{ poa.family }}</h4>
+                <h4>Locality : {{ poa.location }}</h4>
+                <h4>Collected by : {{ poa.collector }}</h4>
+                <h4>Date : {{ poa.collection_date }}</h4>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
 </div>
 
-<div id="family3" class="species-list">
-    <h3>BRYOPHYTA</h3>
-    <ul>
-        <li>Species 3A</li>
-        <li>Species 3B</li>
-        <li>Species 3C</li>
-    </ul>
-</div>
 
+<div id="LILIACEAE" class="species-list">
+    <h3>LILIACEAE</h3>
+    <div class="card-container">
+        {% for lili in lili_items %}
+        <div class="card" style="text-align: left;">
+            <img src="{{ lili.image.url }}" alt="{{ lili.name }}">
+            <div class="card-text">
+                <h4>Name: {{ lili.scientific_name }}</h4>
+                <h4>Family: {{ lili.family }}</h4>
+                <h4>Locality : {{ lili.location }}</h4>
+                <h4>Collected by : {{ lili.collector }}</h4>
+                <h4>Date : {{ lili.collection_date }}</h4>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+</div>
+</section>
+<script>
+document.getElementById('algae-family').addEventListener('change', function() {
+            // Hide all species lists
+            document.querySelectorAll('.species-list').forEach(function(list) {
+                list.classList.remove('active');
+            });
+
+            // Show the selected species list, or all if none selected
+            var selectedFamily = this.value;
+            if (selectedFamily) {
+                document.getElementById(selectedFamily).classList.add('active');
+            } else {
+                document.querySelectorAll('.species-list').forEach(function(list) {
+                    list.classList.add('active');
+                });
+            }
+        });
+
+        // Display all species lists by default
+        document.querySelectorAll('.species-list').forEach(function(list) {
+            list.classList.add('active');
+        });
+</script>
 
 {%endblock%}
