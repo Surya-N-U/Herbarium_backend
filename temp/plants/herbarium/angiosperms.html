@@ -22,8 +22,12 @@ The classification of angiosperms:
 </ol>
 </p>    
 {% for angio in angio_items %}
-<div class="card">
+<div class="card" onclick="enlargeImage(this)">
+        <div class="card-image-container">
+     
     <img src="{{ angio.image.url }}" alt="{{ angio.name }}">
+    </div>
+
     <div class="card-text">
         <h3>Name: {{ angio.name }}</h3>
         <h3>Family: {{ angio.family }}</h3>
@@ -33,4 +37,28 @@ The classification of angiosperms:
   
 
 </section>
+<script>
+        
+    function enlargeImage(selectedCard) {
+        const allCards = document.querySelectorAll('.card');
+        const overlay = document.getElementById('overlay');
+        const enlargedImage = document.getElementById('enlarged-image');
+
+        // Get the image source and set it to the overlay image
+        const imageSrc = selectedCard.querySelector('.card-image').src;
+        enlargedImage.src = imageSrc;
+
+        // Show the overlay and add blur to the background
+        overlay.style.display = 'flex';
+        document.body.classList.add('blurred');
+        overlay.classList.add('show');
+    }
+
+    // Hide the overlay and remove blur when clicking outside the image
+    document.getElementById('overlay').addEventListener('click', () => {
+        document.getElementById('overlay').style.display = 'none';
+        document.body.classList.remove('blurred');
+        document.getElementById('overlay').classList.remove('show');
+    });
+</script>
 {%endblock%}

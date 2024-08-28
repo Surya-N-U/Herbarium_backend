@@ -21,7 +21,7 @@
             display: block;
         }
         .algae-cover {
-            background-image: url({% static 'plants/new_images/algae_cover.webp' %});
+            background-image: url({% static 'plants/new_images/algae_cover.webp' % });
         }
 </style>
 
@@ -60,12 +60,17 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
 {% endfor %}
     </div>
     
-<div id="Chlorophyta" class="species-list" 
+<div id="Chlorophyta" class="species-list" >
     <h3>Chlorophyta</h3>
     <div class="card-container">
         {% for chloro in chloro_items %}
-        <div class="card" style="text-align: left;">
-            <img src="{{ chloro.image.url }}" alt="{{ chloro.name }}">
+        <div class="card-container">
+            <div class="card" onclick="enlargeImage(this)">
+                <div class="card-image-container">
+             
+        
+            <img src="{{ chloro.image.url }}" alt="{{ chloro.name }}" class="card-image">
+        </div>
             <div class="card-text">
                 <h3>Name: {{ chloro.scientific_name }}</h3>
                 <h3>Family: {{ chloro.family }}</h3>
@@ -78,12 +83,23 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
     </div>
 </div>
 
+    <!-- Enlarged Image Overlay -->
+    <div id="overlay" class="overlay">
+        <img id="enlarged-image" class="enlarged-image" src="" alt="">
+    </div>
+
+
+       
+
 <div id="Rhodophyta" class="species-list">
     <h3>Rhodophyta</h3>
     <div class="card-container" style="text-align: left;">
         {% for rhodo in rhodo_items %}
-        <div class="card" style="text-align: left;">
+        <div class="card" onclick="enlargeImage(this)">
+            <div class="card-image-container">
+         
             <img src="{{ rhodo.image.url }}" alt="{{ rhodo.name }}">
+</div>
             <div class="card-text">
                 <h3>Name: {{ rhodo.scientific_name }}</h3>
                 <h3>Family: {{ rhodo.family }}</h3>
@@ -99,8 +115,11 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
 <div id="Ochrophyta" class="species-list" style="text-align: left;" >
     <h3>Ochrophyta</h3>
     {% for ochro in ochro_items %}
-    <div class="card" style="text-align: left;">
+    <div class="card" onclick="enlargeImage(this)">
+        <div class="card-image-container">
+     
         <img src="{{ ochro.image.url }}" alt="{{ ochro.name }}">
+        </div>
         <div class="card-text">
             <h3>Name: {{ ochro.scientific_name }}</h3>
             <h3>Family: {{ ochro.family }}</h3>
@@ -115,8 +134,11 @@ Most algae require a moist or watery environment; hence, they are ubiquitous nea
 <div id="Charophyta" class="species-list">
     <h3>Charophyta</h3>
     {% for charo in Charo_items %}
-    <div class="card" style="text-align: left;">
+    <div class="card" onclick="enlargeImage(this)">
+        <div class="card-image-container">
+     
         <img src="{{ charo.image.url }}" alt="{{ charo.name }}">
+        </div>
         <div class="card-text" style="text-align: left;">
             <h3>Name: {{ charo.scientific_name }}</h3>
             <h3>Family: {{ charo.family }}</h3>
@@ -151,5 +173,30 @@ document.getElementById('algae-family').addEventListener('change', function() {
         document.querySelectorAll('.species-list').forEach(function(list) {
             list.classList.add('active');
         });
+        
+        function enlargeImage(selectedCard) {
+                const allCards = document.querySelectorAll('.card');
+                const overlay = document.getElementById('overlay');
+                const enlargedImage = document.getElementById('enlarged-image');
+    
+                // Get the image source and set it to the overlay image
+                const imageSrc = selectedCard.querySelector('.card-image').src;
+                enlargedImage.src = imageSrc;
+    
+                // Show the overlay and add blur to the background
+                overlay.style.display = 'flex';
+                document.body.classList.add('blurred');
+                overlay.classList.add('show');
+            }
+    
+            // Hide the overlay and remove blur when clicking outside the image
+            document.getElementById('overlay').addEventListener('click', () => {
+                document.getElementById('overlay').style.display = 'none';
+                document.body.classList.remove('blurred');
+                document.getElementById('overlay').classList.remove('show');
+            });
+
+
+        
 </script>
 {%endblock%}

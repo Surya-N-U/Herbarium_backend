@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Herbarium_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/surya/Projects/Mini-Projects/Herbarium_backend/temp/plants/herbarium'],
+        'DIRS': ['/Users/sinchanaarun/Herbarium_backend_1/temp/plants/herbarium'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'Herbarium_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'allplants',
+        'NAME': 'plantsHerb',
         'USER': 'root',
-        'PASSWORD': 'surya1234',
+        'PASSWORD': 'sinchana',
         'HOST': 'localhost',
         'PORT': '3306',
     }

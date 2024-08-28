@@ -43,8 +43,11 @@ Bryophytes are small, non-vascular plants that are found in moist environments. 
 <div id="HEPATOPHYTA" class="species-list">
     <h3>HEPATOPHYTA</h3>
     {% for hepa in hepa_items %}
-    <div class="card">
+
+        <div class="card" onclick="enlargeImage(this)">
+            <div class="card-image-container">
         <img src="{{ hepa.image.url }}" alt="{{ hepa.name }}">
+        </div>
         <div class="card-text">
             <h3>Name: {{ hepa.name }}</h3>
             <h3>Family: {{ hepa.family }}</h3>
@@ -59,8 +62,10 @@ Bryophytes are small, non-vascular plants that are found in moist environments. 
 <div id="ANTHOCEROPHYTA" class="species-list">
     <h3>ANTHOCEROPHYTA</h3>
     {% for antho in antho_items %}
-    <div class="card">
+    <div class="card" onclick="enlargeImage(this)">
+        <div class="card-image-container">
         <img src="{{ antho.image.url }}" alt="{{ antho.name }}">
+        </div>
         <div class="card-text">
             <h3>Name: {{ antho.name }}</h3>
             <h3>Family: {{ antho.family }}</h3>
@@ -77,6 +82,7 @@ Bryophytes are small, non-vascular plants that are found in moist environments. 
     {% for bryo in bryo_items %}
     <div class="card">
         <img src="{{ bryo.image.url }}" alt="{{ bryo.name }}">
+        </div>
         <div class="card-text">
             <h3>Name: {{ bryo.name }}</h3>
             <h3>Family: {{ bryo.family }}</h3>
